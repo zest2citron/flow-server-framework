@@ -98,6 +98,52 @@ class MyCustomEngine extends Engine {
 }
 ```
 
+### Plugin System
+
+Flow Server Framework includes a powerful plugin system that follows the "pif paf hopla" philosophy:
+
+- **Pif**: Auto-discovery of plugins in designated directories
+- **Paf**: Auto-configuration of plugins based on application settings
+- **Hopla**: Auto-adaptation to different environments and configurations
+
+Plugins can extend the framework's functionality without modifying its core code. For detailed information about the plugin system, see [PLUGINS.md](./PLUGINS.md).
+
+#### Basic Plugin Example
+
+```javascript
+// flow-server-plugin-example/src/index.js
+class ExamplePlugin {
+  constructor(options = {}) {
+    this.options = {
+      greeting: 'Hello from Example Plugin!',
+      ...options
+    };
+  }
+
+  init(flow) {
+    // Register with service manager
+    flow.services.set('examplePlugin', this);
+    
+    // Add a route if HTTP engine is available
+    const httpEngine = flow.getEngine('http');
+    if (httpEngine) {
+      httpEngine.get('/example', (ctx) => {
+        ctx.res.setHeader('Content-Type', 'application/json');
+        ctx.res.end(JSON.stringify({
+          message: this.options.greeting
+        }));
+      });
+    }
+    
+    return this;
+  }
+}
+
+module.exports = function createExamplePlugin(options = {}) {
+  return new ExamplePlugin(options);
+};
+```
+
 ## License
 
 MIT
