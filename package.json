@@ -1,0 +1,26 @@
+{
+  "name": "flow-server-framework",
+  "version": "0.1.0",
+  "description": "A minimalist modular framework for Node.js applications",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node examples/simple-server.js"
+  },
+  "keywords": [
+    "framework",
+    "node",
+    "modular",
+    "http",
+    "server"
+  ],
+  "author": "Flow Framework Team",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^29.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
