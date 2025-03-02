@@ -18,8 +18,6 @@ The Flow Server Framework uses a modular plugin system that follows the "pif paf
 │   └── plugins/                  # Framework plugins directory
 ├── flow-server-{app_name}/       # Application-specific repository
 │   └── plugins/                  # Application-specific plugins
-└── plugins-dev/                  # Plugin development directory
-    └── flow-server-plugin-{name}/
 ```
 
 ### Plugin Discovery Mechanism

@@ -3,40 +3,5 @@
     "name": "flow-server-app",
     "version": "1.0.0",
     "port": 3000
-  },
-  "database": {
-    "main": {
-      "host": "localhost",
-      "user": "root",
-      "password": "",
-      "database": "flow",
-      "waitForConnections": true,
-      "connectionLimit": 10,
-      "queueLimit": 0
-    },
-    "secondary": {
-      "host": "localhost",
-      "user": "root",
-      "password": "",
-      "database": "flow_secondary",
-      "waitForConnections": true,
-      "connectionLimit": 5,
-      "queueLimit": 0
-    }
-  },
-  "plugins": {
-    "mariadbRaw": {
-      "defaultConnection": "main"
-    },
-    "mariadbChained": {
-      "defaultConnection": "main"
-    },
-    "mariadbOrm": {
-      "defaultConnection": "main",
-      "models": {
-        "path": "models",
-        "autoload": true
-      }
-    }
   }
 }
